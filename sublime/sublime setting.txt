@@ -1,0 +1,78 @@
+¡¾Preferences: settings - User¡¿
+################################################################
+{
+	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+	"file_exclude_patterns":
+	[
+		"yiicmd.php",
+		"*.txt"
+	],
+	"folder_exclude_patterns":
+	[
+		"sql",
+		".git",
+		".svn",
+		".bin",
+		".idea",
+		"cache",
+		"compile",
+		"uploads",
+		"keditor",
+		"framework",
+		"protected"
+	],
+	"font_size": 15,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Default.sublime-theme"
+}
+################################################################
+
+¡¾Preferences: Package Control setting - User¡¿
+################################################################
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Browser Refresh",
+		"Emmet",
+		"Git",
+		"jQuery",
+		"LESS",
+		"Package Control",
+		"SyncedSideBar"
+	]
+}
+################################################################
+
+¡¾Preferences: Key bINDINGS - User¡¿
+################################################################
+[
+    {
+        "keys": ["f5"], 
+        "command": "browser_refresh",
+        "args": {
+            "auto_save": true,
+            "delay": 0.5,
+            "activate_browser": true,
+            "browser_name" : "all"
+        }
+    },
+
+    {
+    	"keys": ["ctrl+shift+e"],
+    	"command": "show_panel",
+    	"args": {"panel": "find_in_files"}
+	},
+
+    {
+        "keys": ["ctrl+shift+f"],
+        "command": "reindent"
+    }
+]
+################################################################

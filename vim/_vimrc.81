@@ -1,0 +1,142 @@
+﻿source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+
+
+" -------- 以下为自定义设置 --------
+
+" [文件菜单]
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+
+" [多光标]
+let g:multi_cursor_next_key='<C-d>'
+
+" [函数菜单]
+nmap <F3> :TagbarToggle<CR>
+
+" 修改原来快捷键
+nmap <C-Tab> <C-pageUp><CR>
+nmap <S-Tab> <C-w><C-w><CR>
+
+
+" 窗口最大化
+au GUIEnter * simalt ~x
+set guioptions-=m " 隐藏菜单栏
+set guioptions-=T " 隐藏工具栏
+set guioptions-=L " 隐藏左侧滚动条
+set guioptions-=r " 隐藏右侧滚动条
+set guioptions-=b " 隐藏底部滚动条
+set guioptions-=0 " 隐藏tab栏
+
+set encoding=utf-8 " 编码
+set guifont=Courier\ New:h10 " 字体、字号
+set nu " 行号
+set cursorline " 突出当前行
+
+set tabstop=4 " 设置默认为4个空格
+set sts=4 " 设置softtabstop为4个空格，使用tab缩进后，删除也是整个tab删掉
+set expandtab " 使用空格代替Tab键
+set shiftwidth=4 " 设置自动缩进4个空格(回车缩进4个空格)
+
+set mouse=a " 启动命令控制鼠标
+set nobackup " 不生成备份
+set noswapfile " 不缓存*.swp文件
+set noundofile " 不缓存*.un~文件
+
+
+" -------- 插件 --------
+" 配色
+colorscheme colorsbox-stblue
+" 透明度
+autocmd guienter * call libcallnr('../vimfiles/plugin/vimtweak', 'SetAlpha', 204)
+
+
+" -------- 使用Vundle管理 --------
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+    " 管理工具
+    Plugin 'VundleVim/Vundle.vim'
+
+    " 配色(需要手动复制、启动配色)
+    Plugin 'mkarmona/colorsbox'
+
+    " 透明度
+    Plugin 'mattn/vimtweak'
+
+    " 文件菜单
+    Plugin 'scrooloose/nerdtree'
+
+    " Ctrl+p/快速搜索目录、文件
+    Plugin 'kien/ctrlp.vim'
+
+    " 自动补全各种括号、单双引号
+    Plugin 'Raimondi/delimitMate'
+
+    " 多光标
+    Plugin 'terryma/vim-multiple-cursors'
+
+    " 保存最后关闭的状况
+    Plugin 'tpope/vim-obsession'
+    Plugin 'dhruvasagar/vim-prosession'
+    " 在~/.vim/bundle/下执行下面语句
+    " vim -u NONE -c 'helptags vim-obsession/doc' -c q
+
+
+    " 标签补全
+    Plugin 'mattn/emmet-vim'
+
+    " 标签对高亮显示(需要Python支持)
+    Plugin 'Valloric/MatchTagAlways'
+
+    " CSS颜色高亮
+    Plugin 'gko/vim-coloresque'
+
+    " js补全(目录、文件、变量、函数)
+    Plugin 'ternjs/tern_for_vim'
+
+    " JS语法高亮
+    Plugin 'pangloss/vim-javascript'
+
+    " 变量、函数
+    Plugin 'majutsushi/tagbar'
+
+    " 候选菜单(补全)
+    " Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
+filetype plugin indent on
+
+

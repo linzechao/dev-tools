@@ -1,0 +1,21 @@
+{
+    "name": "npm",
+    "version": "0.0.1",
+    "homepage": "http://linzechao.github.io/home",
+    "authors": [
+        "Mr. Super <631924081@qq.com>"
+    ],
+    "description": "test,study",
+    "keywords": [
+        "test",
+        "study"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
