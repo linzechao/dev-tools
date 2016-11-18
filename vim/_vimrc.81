@@ -49,6 +49,9 @@ nmap <F3> :TagbarToggle<CR>
 nmap <C-Tab> <C-pageUp><CR>
 nmap <S-Tab> <C-w><C-w><CR>
 
+" 格式化
+noremap <F4> :Autoformat<CR>
+
 
 " 窗口最大化
 au GUIEnter * simalt ~x
@@ -99,6 +102,9 @@ call vundle#begin()
     " 文件菜单
     Plugin 'scrooloose/nerdtree'
 
+    " 变量、函数菜单
+    Plugin 'majutsushi/tagbar'
+
     " Ctrl+p/快速搜索目录、文件
     Plugin 'kien/ctrlp.vim'
 
@@ -108,7 +114,16 @@ call vundle#begin()
     " 多光标
     Plugin 'terryma/vim-multiple-cursors'
 
-    " 保存最后关闭的状况
+    " 等号、冒号对齐
+    Plugin 'godlygeek/tabular' 
+
+    " 格式化
+    Plugin 'Chiel92/vim-autoformat'
+
+    " markdown高亮
+    Plugin 'tpope/vim-markdown'
+
+     " 保存最后关闭的状况
     Plugin 'tpope/vim-obsession'
     Plugin 'dhruvasagar/vim-prosession'
     " 在~/.vim/bundle/下执行下面语句
@@ -124,17 +139,14 @@ call vundle#begin()
     " CSS颜色高亮
     Plugin 'gko/vim-coloresque'
 
+    " CSS3高亮
+    Plugin 'hail2u/vim-css3-syntax' 
+
     " js补全(目录、文件、变量、函数)
     Plugin 'ternjs/tern_for_vim'
 
     " JS语法高亮
     Plugin 'pangloss/vim-javascript'
-
-    " 变量、函数
-    Plugin 'majutsushi/tagbar'
-
-    " 候选菜单(补全)
-    " Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
