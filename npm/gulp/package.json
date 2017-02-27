@@ -1,0 +1,29 @@
+{
+  "name": "gulp",
+  "version": "0.0.1",
+  "description": "gulp study",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "del": "^2.0.2",
+    "gulp-htmlmin": "^1.1.4",
+    "gulp-jshint": "^1.11.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/linzechao/auto.git"
+  },
+  "keywords": [
+    "gulp",
+    "study"
+  ],
+  "author": "Mr. Super",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linzechao/auto/issues"
+  },
+  "homepage": "https://github.com/linzechao/auto#readme"
+}
