@@ -35,6 +35,7 @@ let g:user_emmet_expandabbr_key = '<Tab>'
 
 
 #### [文件目录、变量、函数菜单(包含taglist)](http://www.vim.org/scripts/download_script.php?src_id=754)
+[*参考*](http://www.cnblogs.com/xia520pi/p/3659270.html)
 ```vim
 let g:winManagerWindowLayout='FileExplorer|TagList'
 nmap wm :WMToggle<cr>
