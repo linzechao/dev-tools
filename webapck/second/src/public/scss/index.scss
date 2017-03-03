@@ -1,0 +1,16 @@
+@import "compass/css3/transform";
+
+@import './variables.scss';
+
+body {
+    color: $color-base;
+    background-color: $back-base;
+}
+
+p {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    @include transform(translate(-50%, -50%));
+}
+

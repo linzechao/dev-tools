@@ -1,0 +1,16 @@
+$brand-primary: #369;
+$brand-success: #6d6;
+$brand-error: #d66;
+$brand-light: #ddd;
+$brand-drak: #333;
+
+$color-primary: darken($brand-primary, .5);
+$color-success: darken($brand-success, .5);
+$color-error: darken($brand-error, .5);
+$color-base: darken($brand-drak, .5);
+
+$back-primary: lighten($brand-primary, .5);
+$back-success: lighten($brand-success, .5);
+$back-error: lighten($brand-error, .5);
+$back-base: lighten($brand-light, .5);
+
