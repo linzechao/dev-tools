@@ -1,13 +1,15 @@
-var webpack = require('webpack');
+var webpack = require('webpack'),
+    path = require('path');
 
 module.exports = {
+    // html script引入key
     entry: {
-        index: './src/public/js/index.js',
-        login: './src/public/js/login.js'
+        index: './src/js/index.js',
+        login: './src/js/login.js'
     },
 
     output: {
-        path: '/dest/public/js',
+        // path: path.join(__dirname + '/dest/js'),
         filename: '[name].js'
     },
 
