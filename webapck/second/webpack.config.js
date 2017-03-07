@@ -4,12 +4,12 @@ var webpack = require('webpack'),
 module.exports = {
     // html script引入key
     entry: {
-        index: './src/js/index.js',
-        login: './src/js/login.js'
+        index: './src/script/index.js',
+        login: './src/script/login.js'
     },
 
     output: {
-        // path: path.join(__dirname + '/dest/js'),
+        path: path.resolve(__dirname, 'dist/js'),
         filename: '[name].js'
     },
 

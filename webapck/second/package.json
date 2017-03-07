@@ -4,7 +4,8 @@
   "description": "test project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors"
+    "server": "webpack-dev-server --progress --colors",
+    "webpack": "webpack --config webpack.config.js --progress --colors --watch"
   },
   "keywords": [
     "webpack"
