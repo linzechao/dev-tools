@@ -83,14 +83,14 @@ module.exports = {
                 loader: 'babel-loader',
                 // 包含范围
                 include: [
-                    path.resolve(__dirname + 'src'),
-                    path.resolve(__dirname + 'test')
+                    path.resolve(__dirname + '/src'),
+                    path.resolve(__dirname + '/test')
                 ],
                 // 忽略范围
-                exclude: path.resolve(__dirname + 'node_modules'),
+                exclude: path.resolve(__dirname + '/node_modules'),
                 // 解析该标准下的语法
                 query: {
-                    presets: ['es2015']
+                    presets: ['env']
                 }
             }
         ]
