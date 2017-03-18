@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 console.log('This is main.js');
 
 const abc = 123;
@@ -23,6 +24,17 @@ for (let a = 0; a < 10; a++) {
     let a = 1;
     console.log(a);
 }
+*/
+
+
+// import './../style/main.css';
+// import './../style/css/main.css';
+import './../style/scss/index.scss';
+// import './../style/less/main.less';
+
+
+
+
 
 
 

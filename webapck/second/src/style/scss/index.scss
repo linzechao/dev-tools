@@ -1,4 +1,4 @@
-@import "compass/css3/transform";
+// @import "compass/css3/transform";
 
 @import './variables.scss';
 
@@ -11,6 +11,7 @@ p {
     position: absolute;
     top: 50%;
     right: 50%;
-    @include transform(translate(-50%, -50%));
+    border-radius: 50%;
+    box-shadow: 0 0 10px #000;
 }
 

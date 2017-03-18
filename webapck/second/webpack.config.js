@@ -13,24 +13,11 @@ const ENTRY = {
 for (let key in ENTRY) {
     PAGES.push(new htmlWebpackPlugin({
         filename: `${key}.html`,
-        // filename: 'main-[hash].html',
         template: `./src/template/${key}.html`,
         inject: 'head',
         title: 'html webpack plugin title',
-        date: new Date(),
         // 指定引入那些模块
         chunks: [`${key}`],
-        // 排除指定模块
-        // excludeChunks: ['login', 'index'],
-        // 压缩
-        /*
-        minify: {
-            // 注释
-            removeComments: true,
-            // 空格
-            collapseWhitespace: true
-        }
-        */
     }));
 }
 
@@ -52,13 +39,35 @@ module.exports = {
 
     // 模块
     module: {
-        loaders: [
+        rules: [
             // style-loader: 加载css
             // css-loader：模块化css
             // webpack2不支持简写，一定要带上-loader
+            // ?importLoaders=1只使用1个css来渲染
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                // loader: 'style-loader!css-loader?importLoaders=1!postcss-loader'
+                /*
+                loaders: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader'
+                ]
+                */
+                use: [
+                    'style-loader',
+                    'css-loader?importLoaders=1',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function() {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    }
+                ]
             },
 
             // 需要sass-loader、node-sass支持
@@ -68,7 +77,33 @@ module.exports = {
             // cnpm install node-sass 
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!sass-loader'
+                // loader: 'style-loader!css-loader!sass-loader!postcss-loader'
+                use: [
+                    'style-loader',
+                    'css-loader?importLoaders=1',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function() {
+                                return [
+                                    require('autoprefixer'),
+                                    require('postcss-scss')
+                                ];
+                            }
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },
+
+            // postcss-loader
+            // css后处理器
+            // 配合autoprefixer
+            
+            // less
+            {
+                test: /\.less$/,
+                loader: 'style-loader!css-loader!less-loader'
             },
 
             // 解析ES6
@@ -96,9 +131,19 @@ module.exports = {
         ]
     },
 
+    // postcss
+    /*
+     * 过时写法
+    postcss: [
+        require('autoprefixer')({
+            broswers: ['last 5 versions']
+        })
+    ],
+    */
+
     // 插件
     plugins: [
-        new webpack.BannerPlugin('@author: MR.Super!'),
+        new webpack.BannerPlugin('@author: MR.Super!')
     ].concat(PAGES)
 };
 
