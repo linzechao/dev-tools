@@ -27,6 +27,7 @@ for (let a = 0; a < 10; a++) {
 */
 
 
+
 // import './../style/main.css';
 // import './../style/css/main.css';
 import './../style/scss/index.scss';

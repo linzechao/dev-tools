@@ -1,10 +1,14 @@
 // @import "compass/css3/transform";
 
-@import './variables.scss';
+@import "./variables.scss";
+
+$IMG-URL: "./../../images/";
 
 body {
     color: $color-base;
     background-color: $back-base;
+    background-image: url($IMG-URL + "5.png");
+    background-repeat: no-repeat;
 }
 
 p {
@@ -13,5 +17,10 @@ p {
     right: 50%;
     border-radius: 50%;
     box-shadow: 0 0 10px #000;
+
+    margin: {
+        top: 10px;
+        bottom: 10px;
+    }
 }
 

@@ -55,8 +55,15 @@ module.exports = {
                 ]
                 */
                 use: [
-                    'style-loader',
-                    'css-loader?importLoaders=1',
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -80,14 +87,13 @@ module.exports = {
                 // loader: 'style-loader!css-loader!sass-loader!postcss-loader'
                 use: [
                     'style-loader',
-                    'css-loader?importLoaders=1',
+                    'css-loader',
                     {
                         loader: 'postcss-loader',
                         options: {
                             plugins: function() {
                                 return [
-                                    require('autoprefixer'),
-                                    require('postcss-scss')
+                                    require('autoprefixer')
                                 ];
                             }
                         }
@@ -101,10 +107,83 @@ module.exports = {
             // 配合autoprefixer
             
             // less
+            // loader处理是从右到左
             {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
+                // loader: 'style-loader!css-loader!less-loader'
+                
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        /*
+                         * less不需要制定import引入的方式
+                        options: {
+                            importLoaders: 1
+                        }
+                        */
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function() {
+                                return [
+                                    require('autoprefixer')({
+                                        broswers: ['last 5 versions']
+                                    })
+                                ];
+                            }
+                        }
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            noIeCompat: true
+                        }
+                    }
+                ]
             },
+
+            // 图片也需要被loader解析
+            // file-loader
+            /*
+            {
+                test: /\.(jpg|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name]-[hash:5].[ext]'
+                        }
+                    }
+                ]
+            },
+            */
+
+            // 另一个加载图片
+            // url-loader
+            // 如果图片大于设置的大小，则使用file-loader
+            // 否则转成base64
+            // image-webpack-loader
+            // 压缩图片
+            {
+                test: /\.(jpg|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'images/[name]-[hash:5].[ext]'
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader'
+                    }
+                ]
+            },
+
 
             // 解析ES6
             // 耗时
