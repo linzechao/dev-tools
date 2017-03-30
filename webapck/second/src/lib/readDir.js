@@ -26,6 +26,6 @@ function readSync(path) {
 
 
 module.exports = {
-    readSync: readSync
+    read: readSync
 };
 

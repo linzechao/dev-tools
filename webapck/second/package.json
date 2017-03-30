@@ -4,8 +4,8 @@
   "description": "test project",
   "main": "index.js",
   "scripts": {
-    "server": "webpack-dev-server --progress --colors",
-    "webpack": "webpack --config webpack.config.js --progress --colors --watch"
+    "server": "webpack-dev-server --config config/webpack.config.js --progress --colors",
+    "webpack": "webpack --config config/webpack.config.js --progress --colors --watch"
   },
   "keywords": [
     "webpack"
@@ -32,6 +32,7 @@
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
     "url-loader": "^0.5.8",
+    "vue-loader": "^11.3.4",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }
