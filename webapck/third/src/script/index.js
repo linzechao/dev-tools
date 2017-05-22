@@ -1,7 +1,6 @@
 // var footer = require('components/footer.vue');
-import footer from 'components/footer';
+import footer from 'components/footer.vue';
 
-require('sass/index.scss');
 
 /*
 new Vue({
