@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --config webpack.config.js --colors",
-    "server": "webpack-dev-server --config webpack.config.js --colors",
+    "server": "webpack-dev-server --config webpack.config.js --progress --color",
     "production": "webpack -p"
   },
   "repository": {
@@ -18,9 +18,6 @@
     "url": "https://github.com/linzechao/vue/issues"
   },
   "homepage": "https://github.com/linzechao/vue#readme",
-  "dependencies": {
-    "vue": "^2.3.3"
-  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
