@@ -1,7 +1,6 @@
 Branch(分支管理)
 ----
 
-
 #### step 1
 ``` js
 git branch dev // 创建新分支dev
