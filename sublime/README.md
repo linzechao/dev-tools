@@ -13,7 +13,7 @@
 >
 > 7、在弹出的搜索框中可输入以下插件名进行安装
 
-  ·有坑：[《please wait a bit while pyv8 binary is being downloaded》](https://github.com/emmetio/pyv8-binaries#readme)
+  有坑：[《please wait a bit while pyv8 binary is being downloaded》](https://github.com/emmetio/pyv8-binaries#readme)
 
 
 #### AdvancedNewFile
