@@ -1,6 +1,6 @@
 #### 准备工作
 > 1、打开Package Comtrol的Installation [click me.](https://packagecontrol.io/installation)
->
+> 
 > 2、根据下载的sublime版本复制相对应的安装代码
 >
 > 3、回到sublime使用[Ctrl+`]，打开控制台
@@ -12,6 +12,9 @@
 > 6、打开sublime使用[Ctrl+Shift+p]，输入install，回车后
 >
 > 7、在弹出的搜索框中可输入以下插件名进行安装
+
+  ·有坑：[《please wait a bit while pyv8 binary is being downloaded》](https://github.com/emmetio/pyv8-binaries#readme)
+
 
 #### AdvancedNewFile
 ```js
