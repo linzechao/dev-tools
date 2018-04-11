@@ -1,3 +1,5 @@
+[win10 git-base 闪退](https://blog.csdn.net/liruda/article/details/79382822)
+
 # 克隆远程库的“热身”准备
 
 
