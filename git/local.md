@@ -48,7 +48,7 @@ git log --stat
 # 自定义格式
 git log --pretty=online
 # %h：简短哈希字串；%s：提交说明；%an：作者
-git log --pretty=format:"%h %s %an"
+git log --pretty=format:"%h %s %an" --graph
 ```
 
 ```bash
