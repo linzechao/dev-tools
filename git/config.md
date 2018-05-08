@@ -1,14 +1,13 @@
-Git Config
-----
+#### Git Config
 
-#### step 1
-``` js
-// 让命令加上颜色
+step 1
+```bash
+# 让命令加上颜色
 git config --global color.ui true
 ```
 
 
-#### step 2
+step 2
 > 新建.gitignore文件，用来忽略不需要提交的文件
 >
 > 内容如下：
@@ -19,8 +18,8 @@ git config --global color.ui true
 5. .idea
 
 
-#### step 3
-``` js
+step 3
+```bash
 git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.ci commit
