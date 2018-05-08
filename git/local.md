@@ -1,87 +1,62 @@
-Git基本操作
-----
+#### Git基本操作
 
+```bash
+# 放入暂存区
+git add filename
+git add *
+git add .
 
-#### step 1
-``` js
-git init
-```
-
-
-#### step 2
-``` js
-git add readme.txt aboutme.txt
-git add resume.txt
-```
-
-
-#### step 3
-``` js
-// 查看修改的内容
-git diff
-```
-
-
-#### step 4
-``` js
+# 查看暂存区
 git status
+
+# 对比暂存区
+git diff [filename] --cached
+git diff [filename] --staged
+
+# 对比修改
+git diff [filename]
+git difftool [filename]
+
+# 提交更新
+git commit -m message
+# 操作前不需 git add .
+git commit -a -m message
+
+# 移除文件
+git rm filename
+# 相当于
+rm -rf filename
+git add filename
+
+# 移动文件
+git mv filename new_filename
+# 相当于
+mv filename new_filename
+git rm filename
+git add new_filename
 ```
 
-
-#### step 5
-``` js
-git commit -m "commit all added files"
-```
-
-
-#### step 6
-``` js
-// 查看版本
+```bash
+# 查看日志
 git log
-git log --pretty=oneline
+# 最近 2 条日志
+git log -2
+# 显示修改内容
+git log -p 
+# 列出文件修改统计
+git log --stat
+# 自定义格式
+git log --pretty=online
+# %h：简短哈希字串；%s：提交说明；%an：作者
+git log --pretty=format:"%h %s %an"
 ```
 
-
-#### step 7
-``` js
-// 后退历史版本
-git reset --hard HEAD^
-git reset --hard HEAD~44
-```
-
-
-#### step 8
-``` js
-// 查看已被覆盖的版本
-git reflog
-```
-
-
-#### step 9
-``` js
-// 指定版本
-git reset --hard s4c8z2l6
-```
-
-
-#### step 10
-``` js
-// 撤销未添加到缓冲区修改的内容
-git checkout -- readme.txt
-```
-
-
-#### step 11
-``` js
-git reset HEAD readme.txt
-
-// 撤销已添加到缓冲区修改的内容
-git checkout -- readme.txt
-```
-
-
-#### step 12
-``` js
-// 删除文件
-gir rm readme.txt
+```bash
+# 撤销提交
+git commit --amend
+# 取消暂存的文件
+git reset HEAD filename
+# 移除修改的内容
+git checkout -- filename
+git checkout -- .
 ```
