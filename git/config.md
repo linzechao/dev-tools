@@ -1,11 +1,10 @@
-#### Git Config
+#### Git 全局配置
 
 step 1
 ```bash
 # 让命令加上颜色
 git config --global color.ui true
 ```
-
 
 step 2
 > 新建.gitignore文件，用来忽略不需要提交的文件
@@ -16,7 +15,6 @@ step 2
 3. ethumbs.db
 4. Desktop.ini
 5. .idea
-
 
 step 3
 ```bash
