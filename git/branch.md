@@ -1,34 +1,34 @@
-Branch(分支管理)
-----
+#### Git 分支管理
 
-#### step 1
-``` js
-git branch dev // 创建新分支dev
-git checkout dev // 切换分支到dev
-git checkout -b dev // 合并以上2个操作
+```bash
+# 创建
+git branch branch-name
+
+# 切换分支
+git checkout branch-name
+
+# 快捷方式
+git checkout -b branch-name
 ```
 
-#### step 2
-----
-``` js
-// 查看所有分支与当前使用的分支
+```bash
+# 查看
 git branch
 
-// 查看远程分支
+# 查看远程分支
 git branch -a
 ```
 
+```bash
+# 将分支合并到当前分支
+git merge branch-name
 
-#### step 3
-``` js
-git checkout master // 切换到主分支
-git merge dev // 合并dev分支到主分支
-git branch -d dev // 删除dev分支
+# 删除
+git branch -d branch-name
 
-// 如果要丢失一个没有合并过的分支，可以使用强行删除
-git branch -D "sub-dev"
+# 如果要丢失一个没有合并过的分支，可以使用强行删除
+git branch -D branch-name
 ```
-
 
 #### step 4
 ``` js
