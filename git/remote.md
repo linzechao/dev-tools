@@ -37,3 +37,11 @@ git remote rename origin super
 # 删除
 git remote rm super
 ```
+
+```bash
+# 删除远程分支
+git push origin :branch-name
+
+# 删除远程标签
+git push origin --delete tag-name
+```
