@@ -1,6 +1,7 @@
 #### Git 疑难杂症
 
 [win10 git-base 闪退问题](https://blog.csdn.net/liruda/article/details/79382822)
+[本地分支失去上游信息(失联)](https://blog.csdn.net/jym_ycc/article/details/73485839)
 
 ```bash
 # .ssh文件夹
