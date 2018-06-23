@@ -32,79 +32,80 @@ function MyDiff()
   endif
 endfunction
 
-" ´°¿Ú×î´ó»¯
+" çª—å£æœ€å¤§åŒ–
 au GUIEnter * simalt ~x
-set guioptions-=m " Òş²Ø²Ëµ¥À¸
-set guioptions-=T " Òş²Ø¹¤¾ßÀ¸
-set guioptions-=L " Òş²Ø×ó²à¹ö¶¯Ìõ
-set guioptions-=r " Òş²ØÓÒ²à¹ö¶¯Ìõ
-set guioptions-=b " Òş²Øµ×²¿¹ö¶¯Ìõ
-set guioptions-=0 " Òş²ØtabÀ¸
+set guioptions-=m " éšè—èœå•æ 
+set guioptions-=T " éšè—å·¥å…·æ 
+set guioptions-=L " éšè—å·¦ä¾§æ»šåŠ¨æ¡
+set guioptions-=r " éšè—å³ä¾§æ»šåŠ¨æ¡
+set guioptions-=b " éšè—åº•éƒ¨æ»šåŠ¨æ¡
+set guioptions-=0 " éšè—tabæ 
 
-set encoding=utf-8 " ±àÂë
-set guifont=monofur:h14 " ×ÖÌå¡¢×ÖºÅ
-set nu " ĞĞºÅ
-set cursorline " Í»³öµ±Ç°ĞĞ
+set encoding=utf-8 " ç¼–ç 
+set guifont=monofur:h14 " å­—ä½“ã€å­—å·
+set nu " è¡Œå·
+set cursorline " çªå‡ºå½“å‰è¡Œ
 
-set tabstop=2 " ÉèÖÃÄ¬ÈÏÎª2¸ö¿Õ¸ñ
-set sts=2 " ÉèÖÃsofttabstopÎª2¸ö¿Õ¸ñ£¬Ê¹ÓÃtabËõ½øºó£¬É¾³ıÒ²ÊÇÕû¸ötabÉ¾µô
-set expandtab " Ê¹ÓÃ¿Õ¸ñ´úÌæTab¼ü
-set shiftwidth=2 " ÉèÖÃ×Ô¶¯Ëõ½ø2¸ö¿Õ¸ñ(»Ø³µËõ½ø2¸ö¿Õ¸ñ)
+set tabstop=2 " è®¾ç½®é»˜è®¤ä¸º2ä¸ªç©ºæ ¼
+set sts=2 " è®¾ç½®softtabstopä¸º2ä¸ªç©ºæ ¼ï¼Œä½¿ç”¨tabç¼©è¿›åï¼Œåˆ é™¤ä¹Ÿæ˜¯æ•´ä¸ªtabåˆ æ‰
+set expandtab " ä½¿ç”¨ç©ºæ ¼ä»£æ›¿Tabé”®
+set shiftwidth=2 " è®¾ç½®è‡ªåŠ¨ç¼©è¿›2ä¸ªç©ºæ ¼(å›è½¦ç¼©è¿›2ä¸ªç©ºæ ¼)
 
-set nobackup " ²»Éú³É±¸·İ
-set noswapfile " ²»»º´æ*.swpÎÄ¼ş
-set noundofile " ²»»º´æ*.un~ÎÄ¼ş
+set nobackup " ä¸ç”Ÿæˆå¤‡ä»½
+set noswapfile " ä¸ç¼“å­˜*.swpæ–‡ä»¶
+set noundofile " ä¸ç¼“å­˜*.un~æ–‡ä»¶
 
-nmap <C-V> <C-p><CR>
-
-" [ÎÄ¼ş²Ëµ¥]
+" [æ–‡ä»¶èœå•]
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 
-" ĞŞ¸ÄÔ­À´¿ì½İ¼ü
+" ä¿®æ”¹åŸæ¥å¿«æ·é”®
 nmap <C-Tab> <C-pageUp><CR>
 nmap <S-Tab> <C-w><C-w><CR>
 
-" -------- ²å¼ş --------
-" ÅäÉ«
+" ç¦ç”¨ windows å½±å“çš„å¿«æ·æ–¹å¼
+unmap <C-V>
+
+" -------- æ’ä»¶ --------
+" é…è‰²
 colorscheme colorsbox-stnight
-" Í¸Ã÷¶È
+" é€æ˜åº¦
 " http://www.vim.org/scripts/script.php?script_id=687
-" ½«dllÎÄ¼ş·ÅÖÁgvim.eveÍ¬Ä¿Â¼¼´¿É
+" å°†dllæ–‡ä»¶æ”¾è‡³gvim.eveåŒç›®å½•å³å¯
 au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 204)
 
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-    " ¹ÜÀí¹¤¾ß
+    " ç®¡ç†å·¥å…·
     Plugin 'VundleVim/Vundle.vim'
 
-    " ÅäÉ«(ĞèÒªÊÖ¶¯¸´ÖÆ¡¢Æô¶¯ÅäÉ«)
+    " é…è‰²(éœ€è¦æ‰‹åŠ¨å¤åˆ¶ã€å¯åŠ¨é…è‰²)
     Plugin 'mkarmona/colorsbox'
 
-    " ÎÄ¼ş²Ëµ¥
+    " æ–‡ä»¶èœå•
     Plugin 'scrooloose/nerdtree'
 
-    " markdown¸ßÁÁ
+    " markdowné«˜äº®
     Plugin 'tpope/vim-markdown'
 
-    " vue¸ßÁÁ
+    " vueé«˜äº®
     Plugin 'posva/vim-vue'
 
-    " react¸ßÁÁ
+    " reacté«˜äº®
     Plugin 'mxw/vim-jsx'
 
-    " ±êÇ©²¹È«
+    " æ ‡ç­¾è¡¥å…¨
     Plugin 'mattn/emmet-vim'
 
-    " CSS²¹È«
+    " CSSè¡¥å…¨
     Plugin 'gko/vim-coloresque'
 
-    " CSS3²¹È«
+    " CSS3è¡¥å…¨
     Plugin 'hail2u/vim-css3-syntax' 
 
-    " ×Ô¶¯²¹È«¸÷ÖÖÀ¨ºÅ¡¢µ¥Ë«ÒıºÅ
+    " è‡ªåŠ¨è¡¥å…¨å„ç§æ‹¬å·ã€å•åŒå¼•å·
     Plugin 'Raimondi/delimitMate'
 call vundle#end()
 filetype plugin indent on
