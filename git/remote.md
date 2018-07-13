@@ -40,6 +40,7 @@ git remote rm super
 
 ```bash
 # 删除远程分支
+# 切换到本地对应的分支
 git push origin :branch-name
 
 # 删除远程标签
