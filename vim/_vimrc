@@ -59,9 +59,12 @@ set foldmethod=indent " 设置折叠模式
 
 " 文件预览器
 let mapleader=","
-map <silent><leader>t :NERDTreeToggle<CR>
+nmap <silent><leader>t :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree')
 && b:NERDTree.isTabTree()) | q | endif
+
+" js 文档
+nmap <silent><leader>d <Plug>(jsdoc)
 
 " 修改原来快捷键
 nmap <C-Tab> <C-pageUp><CR>
@@ -74,7 +77,7 @@ nmap <C-k> <C-w><C-k><CR>
 nmap <C-l> <C-w><C-l><CR>
 
 " 禁用影响 Gvim 快捷方式的 Windows 快捷方式
-unmap <C-V>
+unmap <C-v>
 
 " ---------------- 插件 ----------------
 " 配色
@@ -100,11 +103,23 @@ call vundle#begin()
   " 文件菜单
   Plugin 'scrooloose/nerdtree'
 
+  " 文件搜索
+  Plugin 'kien/ctrlp.vim'
+
   " 标签补全
   Plugin 'mattn/emmet-vim'
 
   " 自动补全各种括号、单双引号
   Plugin 'Raimondi/delimitMate'
+
+  " js 文档
+  Plugin 'heavenshell/vim-jsdoc'
+
+  " js 高亮
+  Plugin 'pangloss/vim-javascript'
+
+  " es6 高亮
+  Plugin 'isRuslan/vim-es6'
 
   " markdown 高亮
   Plugin 'tpope/vim-markdown'
