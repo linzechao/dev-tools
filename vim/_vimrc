@@ -55,20 +55,14 @@ set nobackup " 不生成备份文件
 set noswapfile " 不缓存 *.swp 文件
 set noundofile " 不缓存 *.un~ 文件
 
-set foldmethod=indent " 设置折叠模式
+set foldenable              " 开始折叠
+set foldmethod=indent       " 设置语法折叠
+set foldcolumn=0            " 设置折叠区域的宽度为 0
+setlocal foldlevel=1        " 设置折叠层数为 1
+set foldlevelstart=99       " 打开文件是默认不折叠代码
 
-" 文件预览器
-let mapleader=","
-nmap <silent><leader>t :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree')
-&& b:NERDTree.isTabTree()) | q | endif
-
-" js 文档
-nmap <silent><leader>d <Plug>(jsdoc)
-
-" 修改原来快捷键
-nmap <C-Tab> <C-pageUp><CR>
-nmap <S-Tab> <C-w><C-w><CR>
+" 用空格键来开关折叠
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>		
 
 " 窗口切换
 nmap <C-h> <C-w><C-h><CR>
@@ -78,6 +72,14 @@ nmap <C-l> <C-w><C-l><CR>
 
 " 禁用影响 Gvim 快捷方式的 Windows 快捷方式
 unmap <C-v>
+
+" 文件预览器
+let mapleader=","
+nmap <silent><leader>t :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+
+" js 文档
+nmap <silent><leader>d <Plug>(jsdoc)
 
 " ---------------- 插件 ----------------
 " 配色
