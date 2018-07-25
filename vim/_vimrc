@@ -42,7 +42,7 @@ set guioptions-=b " 隐藏底部滚动条
 set guioptions-=0 " 隐藏 tab 栏
 
 set encoding=utf-8 " 编码
-set guifont=Consolas:h12 " 字体、字号
+set guifont=Consolas:h12 " 字体、字号（linux 下都是在命令行，可不用配置，直接修改命令行样式即可）
 set nu " 显示行号
 set cursorline " 突出当前行
 
@@ -81,15 +81,15 @@ autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isT
 " js 文档
 nmap <silent><leader>d <Plug>(jsdoc)
 
-" ---------------- 插件 ----------------
-" 配色
+" windows 配色（linux 自带主题）
 colorscheme colorsbox-stnight
 
-" 透明度
+" windows 透明度（linxu 自带透明）
 " http://www.vim.org/scripts/script.php?script_id=687
 " 将 dll 文件放至 gvim.eve 同目录即可
 au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 184)
 
+" ---------------- 插件 ----------------
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -100,7 +100,7 @@ call vundle#begin()
   " 配色（需要手动复制、启动配色）
   " 复制到 Gvim 安装目录下的 /vimfiles/colors 目录下
   " 在上面引入
-  Plugin 'mkarmona/colorsbox'
+  Plugin 'mkarmona/colorsbox' " windows 下需要
 
   " 文件菜单
   Plugin 'scrooloose/nerdtree'
