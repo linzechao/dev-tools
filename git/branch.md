@@ -1,6 +1,6 @@
 #### 黑科技
 ``` bash
-# 删除多个临时分支
+# 删除多个临时分支（分支命名带有“+”符号）
 git branch | grep '+' | xargs git branch -d
 ```
 
