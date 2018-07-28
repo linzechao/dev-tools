@@ -38,40 +38,40 @@ nmap <silent><leader>d <Plug>(jsdoc)
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	" 文件菜单
-	Plugin 'scrooloose/nerdtree'
+  " 文件菜单
+  Plugin 'scrooloose/nerdtree'
 
-	" 文件搜索
-	Plugin 'kien/ctrlp.vim'
+  " 文件搜索
+  Plugin 'kien/ctrlp.vim'
 
-	" 标签补全
-	Plugin 'mattn/emmet-vim'
+  " 标签补全
+  Plugin 'mattn/emmet-vim'
 
-	" 自动补全各种括号、单双引号
-	Plugin 'Raimondi/delimitMate'
+  " 自动补全各种括号、单双引号
+  Plugin 'Raimondi/delimitMate'
 
-	" js 文档
-	Plugin 'heavenshell/vim-jsdoc'
+  " js 文档
+  Plugin 'heavenshell/vim-jsdoc'
 
-	" js 高亮
-	Plugin 'pangloss/vim-javascript'
+  " js 高亮
+  Plugin 'pangloss/vim-javascript'
 
-	" es6 高亮
-	Plugin 'isRuslan/vim-es6'
+  " es6 高亮
+  Plugin 'isRuslan/vim-es6'
 
-	" markdown 高亮
-	Plugin 'tpope/vim-markdown'
+  " markdown 高亮
+  Plugin 'tpope/vim-markdown'
 
-	" vue 高亮
-	Plugin 'posva/vim-vue'
+  " vue 高亮
+  Plugin 'posva/vim-vue'
 
-	" react 高亮
-	Plugin 'mxw/vim-jsx'
+  " react 高亮
+  Plugin 'mxw/vim-jsx'
 
-	" CSS 高亮
-	Plugin 'gko/vim-coloresque'
+  " CSS 高亮
+  Plugin 'gko/vim-coloresque'
 
-	" CSS3 高亮
-	Plugin 'hail2u/vim-css3-syntax'
+  " CSS3 高亮
+  Plugin 'hail2u/vim-css3-syntax'
 call vundle#end()
 filetype plugin indent on
