@@ -1,3 +1,5 @@
+source $VIMRUNTIME/vimrc_example.vim
+
 set encoding=utf-8 " 编码
 set nu " 显示行号
 set cursorline " 突出当前行
@@ -38,6 +40,10 @@ nmap <silent><leader>d <Plug>(jsdoc)
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+  " 管理工具
+  " 需要手动 git clone 到 ~/.vim/bundle/ 目录下
+  " Plugin 'VundleVim/Vundle.vim'
+
   " 文件菜单
   Plugin 'scrooloose/nerdtree'
 
