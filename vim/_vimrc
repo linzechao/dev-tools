@@ -31,6 +31,9 @@ set foldcolumn=0         " 设置折叠区域的宽度为 0
 setlocal foldlevel=1     " 设置折叠层数为 1
 set foldlevelstart=99    " 打开文件是默认不折叠代码
 
+" 修改突出当前行样式
+highlight cursorline cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+
 " 用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>		
 
