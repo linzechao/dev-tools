@@ -2,64 +2,34 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      if empty(&shellxquote)
-        let l:shxq_sav = ''
-        set shellxquote&
-      endif
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-  if exists('l:shxq_sav')
-    let &shellxquote=l:shxq_sav
-  endif
-endfunction
-
 " 窗口最大化
 au GUIEnter * simalt ~x
-set guioptions-=m " 隐藏菜单栏
-set guioptions-=T " 隐藏工具栏
-set guioptions-=L " 隐藏左侧滚动条
-set guioptions-=r " 隐藏右侧滚动条
-set guioptions-=b " 隐藏底部滚动条
-set guioptions-=0 " 隐藏 tab 栏
+set guioptions-=m        " 隐藏菜单栏
+set guioptions-=T        " 隐藏工具栏
+set guioptions-=L        " 隐藏左侧滚动条
+set guioptions-=r        " 隐藏右侧滚动条
+set guioptions-=b        " 隐藏底部滚动条
+set guioptions-=0        " 隐藏 tab 栏
 
-set encoding=utf-8 " 编码
+set encoding=utf-8       " 编码
 set guifont=Consolas:h12 " 字体、字号（linux 下都是在命令行，可不用配置，直接修改命令行样式即可）
-set nu " 显示行号
-set cursorline " 突出当前行
+set nu                   " 显示行号
+set cursorline           " 突出当前行
 
-set tabstop=2 " 设置默认为 2 个空格
-set sts=2 " 设置 softtabstop 为 2 个空格，使用 tab 缩进后，删除也是整个 tab 删掉
-set expandtab " 使用空格代替 Tab 键
-set shiftwidth=2 " 设置自动缩进 2 个空格（回车缩进 2 个空格）
+set tabstop=2            " 设置默认为 2 个空格
+set sts=2                " 设置 softtabstop 为 2 个空格，使用 tab 缩进后，删除也是整个 tab 删掉
+set expandtab            " 使用空格代替 Tab 键
+set shiftwidth=2         " 设置自动缩进 2 个空格（回车缩进 2 个空格）
 
-set nobackup " 不生成备份文件
-set noswapfile " 不缓存 *.swp 文件
-set noundofile " 不缓存 *.un~ 文件
+set nobackup             " 不生成备份文件
+set noswapfile           " 不缓存 *.swp 文件
+set noundofile           " 不缓存 *.un~ 文件
 
-set foldenable              " 开始折叠
-set foldmethod=indent       " 设置语法折叠
-set foldcolumn=0            " 设置折叠区域的宽度为 0
-setlocal foldlevel=1        " 设置折叠层数为 1
-set foldlevelstart=99       " 打开文件是默认不折叠代码
+set foldenable           " 开始折叠
+set foldmethod=indent    " 设置语法折叠
+set foldcolumn=0         " 设置折叠区域的宽度为 0
+setlocal foldlevel=1     " 设置折叠层数为 1
+set foldlevelstart=99    " 打开文件是默认不折叠代码
 
 " 用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>		
@@ -93,10 +63,6 @@ au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 184)
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-  " 管理工具
-  " 需要手动 git clone 到 ~/.vim/bundle/ 目录下
-  " Plugin 'VundleVim/Vundle.vim'
-
   " 配色（需要手动复制、启动配色）
   " 复制到 Gvim 安装目录下的 /vimfiles/colors 目录下
   " 在上面引入
@@ -113,6 +79,9 @@ call vundle#begin()
 
   " 自动补全各种括号、单双引号
   Plugin 'Raimondi/delimitMate'
+  
+  " 代码对其
+  Plugin 'godlygeek/tabular'
 
   " js 文档
   Plugin 'heavenshell/vim-jsdoc'
