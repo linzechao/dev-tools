@@ -21,6 +21,17 @@ set foldlevelstart=99 " 打开文件是默认不折叠代码
 
 " 修改突出当前行样式
 highlight cursorline cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+" 插入模式时，光标细化
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+  au InsertEnter,InsertChange *
+    \ if v:insertmode == 'i' | 
+    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
+    \ elseif v:insertmode == 'r' |
+    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
+    \ endif
+  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
 
 " 用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>		
