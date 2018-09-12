@@ -25,7 +25,7 @@ highlight cursorline cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NON
 if has("autocmd")
   au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
   au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' | 
+    \ if v:insertmode == 'i' |
     \   silent execute '!echo -ne "\e[5 q"' | redraw! |
     \ elseif v:insertmode == 'r' |
     \   silent execute '!echo -ne "\e[3 q"' | redraw! |
@@ -34,7 +34,7 @@ if has("autocmd")
 endif
 
 " 用空格键来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>		
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " 窗口切换
 nmap <C-h> <C-w><C-h><CR>
@@ -92,5 +92,9 @@ call vundle#begin()
 
   " CSS3 高亮
   Plugin 'hail2u/vim-css3-syntax'
+
+  " typescript 高亮
+  Plugin 'leafgarland/typescript-vim'
+  Plugin 'HerringtonDarkholme/yats.vim'
 call vundle#end()
 filetype plugin indent on
