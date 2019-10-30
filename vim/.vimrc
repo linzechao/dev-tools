@@ -92,7 +92,10 @@ call vundle#begin()
 
   " CSS3 高亮
   Plugin 'hail2u/vim-css3-syntax'
-
+  
+  " 微信小程序
+  Plugin 'chemzqm/wxapp.vim'
+  
   " typescript 高亮
   Plugin 'leafgarland/typescript-vim'
   Plugin 'HerringtonDarkholme/yats.vim'
