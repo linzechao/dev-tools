@@ -73,3 +73,32 @@ npm install --save-dev nodemon
   "watch": ["./src/**/*.*"]
 }
 ```
+
+## pm2
+
+``` bash
+# 安装
+yarn add --dev pm2
+
+# 启动网站
+pm2 start app.js
+
+# 重启网站
+pm2 restart app.js
+
+# 查看运行站点
+pm2 list
+
+# 停机
+pm2 stop $id
+
+# 查看启动日志
+pm2 describe $id
+
+# 查看运行日志
+pm2 logs $id
+
+# 监控
+pm2 monit
+pm2 web
+```
